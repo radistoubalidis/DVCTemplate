@@ -14,5 +14,6 @@ name: read_data
           pip install -r requirements.txt
           python read_data.py
           echo "## Spotify-Data Decade Distribution" >> report.md
-          echo "<img src="./plots/decade_dist.png">"" >> report.md
+          echo "<img src="./plots/decade_dist.png">" >> report.md
+          echo "<img src="./plots/tempo_dist.png">" >> report.md
           cml-send-comment report.md          
