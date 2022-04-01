@@ -1,4 +1,4 @@
-name: read_data
+ name: perturbation-test
  on: [push]
  jobs:
   run:
@@ -15,5 +15,7 @@ name: read_data
           python read_data.py
           echo "## Spotify-Data Decade Distribution" >> report.md
           echo "<img src="./plots/decade_dist.png">" >> report.md
+
+          echo "## Spotify-Data Decade Distribution" >> report.md
           echo "<img src="./plots/tempo_dist.png">" >> report.md
-          cml-send-comment report.md          
+          cml-send-comment report.md
