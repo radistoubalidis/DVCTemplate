@@ -1,6 +1,6 @@
-name: read_data
-on: [push]
-jobs:
+ name: perturbation-test
+ on: [push]
+ jobs:
   run:
     runs-on: [ubuntu-latest]
     container: docker://dvcorg/cml-py3:latest
@@ -14,7 +14,7 @@ jobs:
           pip install -r requirements.txt
           python read_data.py
           echo "## Spotify-Data Decade Distribution" >> report.md
-          echo "<img src="./plots/decade_dist.png">"" >> report.md
-          echo "## Spotify-Data Song Tempo Distribution" >> report.md
-          echo "<img src="./plots/tempo_dist.png">"" >> report.md
-          cml-send-comment report.md         
+          echo "<img src="./plots/decade_dist.png">" >> report.md
+          echo "## Spotify-Data Decade Distribution" >> report.md
+          echo "<img src="./plots/tempo_dist.png">" >> report.md
+          cml-send-comment report.md
