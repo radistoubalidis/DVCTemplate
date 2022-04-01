@@ -1,0 +1,18 @@
+name: read_data
+ on: [push]
+ jobs:
+  run:
+    runs-on: [ubuntu-latest]
+    container: docker://dvcorg/cml-py3:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: cml_run
+        env:
+          repot_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Workflow goes here
+          pip install -r requirements.txt
+          python read_data.py
+          echo "## Spotify-Data Decade Distribution" >> report.md
+          echo "<img src="./plots/decade_dist.png">"" >> report.md
+          cml-send-comment report.md          
